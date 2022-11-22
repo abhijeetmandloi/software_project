@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+    .camera {
+        
+        position: absolute;
+        left: 400px;
+        top: 100px;
+        height: 400px;
+        width: 400px;
+        border: 8px solid #73AD21;
+        padding: 50px;
+}
+.button {
+        display: inline-block;
+        padding: 10px 60px;
+        text-align: center;
+        text-decoration: none;
+        color: #ac0a0a;
+        background-color: aliceblue;
+        border-radius: 6px;
+        outline: none;
+      }
+      a, a:active, a:visited { color: white; }
+      a:hover { color:black; }
+.count{
+        
+       position: absolute;
+        padding: 10px 60px;
+        text-align: center;
+        text-decoration: none;
+        color: #ac0a0a;
+        bottom: 0;
+        left: 0;
+        border-radius: 6px;
+        outline: none;
+}      
+.conc{
+    
+    position: absolute;
+        padding: 10px 60px;
+        text-align: center;
+        text-decoration: none;
+        color: #ac0a0a;
+        bottom:0;
+        right: 0;
+        border-radius: 6px;
+        outline: none;
+}
+      h1 {text-align: center;}     
+      body {
+        background-image:    url(static/background2.jpg);
+        background-repeat: repeat;  
+  background-position: 0% 0%;
+  background-size: 100% 100%;           
+    }
+</style>
+</head>
+<body>
+    <ul class="nav nav-tabs">
+        <li class="nav-item" style="color:#fff"><img src="static/logo.png" height="100px" width="100px"><span style="margin-top:15px; font-size:40px;">BlinkIT </li>
+    </span>
+            <li class="nav-item" style="margin-left:50%;color:#fff;margin-top:25px;">
+            <a class="nav-link active" aria-current="page" href="blink">Blink Camera</a>
+            </li>
+            <li class="nav-item" style="color:#fff;margin-top:25px;">
+            <a class="nav-link" href="analytics">Analysis Page</a>
+            </li>
+        
+    </p>
+    </ul>
+    <div class="camera" style="background-color: hwb(177 20% 64%);">
+        <img src="{{ url_for('video') }}" style="width:100%; height:100%"/>
+    </div> 
+     <br>
+
+    <div class="count"  id="demo" style="background-color: hwb(46 7% 8%);">
+    </div>
+        
+   
+    <div class="conc" id="arun" style="background-color: hwb(51 9% 5%);">
+    </div>
+    <script>
+        i=0;
+        j=2;
+        setInterval(function () {
+            i={{ blink }};
+            j={{ percentage }};
+            $.ajax({
+                type: "GET",
+                url: "/blinkcount",
+                contentType: "application/json",
+                dataType: 'json',
+                success: function(result) {
+                  i=result.blink
+                  document.getElementById("demo").innerHTML = "Blink Count per 2min = "+i;
+                } 
+              });
+              $.ajax({
+                type: "GET",
+                url: "/screenper",
+                contentType: "application/json",
+                dataType: 'json',
+                success: function(result) {
+                  j=result.percentage
+                  document.getElementById("arun").innerHTML = "Screen Concentration = "+j;
+                } 
+              });
+            
+            }
+            , 1000);
+            
+        </script>   
+</body>
+</html>

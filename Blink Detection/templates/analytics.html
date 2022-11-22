@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Analysis</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    body {
+        background-image:    url(static/background2.jpg);
+        background-repeat: repeat;  
+  background-position: 0% 0%;
+  background-size: 100% 100%;           
+    }
+    a, a:active, a:visited { color: white; }
+      a:hover { color:black; }
+.button {
+        display: inline-block;
+        padding: 10px 60px;
+        text-align: center;
+        text-decoration: none;
+        color: #ac0a0a;
+        background-color: aliceblue;
+        border-radius: 6px;
+        outline: none;
+      }
+    
+
+      h1 {text-align: center;}     
+
+</style>
+</head>
+<body>
+    <ul class="nav nav-tabs">
+        <li class="nav-item" style="color:#fff"><img src="static/logo.png" height="100px" width="100px"><span style="margin-top:15px; font-size:40px;">BlinkIT </li>
+    </span>
+            <li class="nav-item" style="margin-left:50%;color:#fff;margin-top:25px;">
+              <a class="nav-link active" aria-current="page" href="blink">Blink Camera</a>
+            </li>
+            <li class="nav-item" style="color:#fff;margin-top:25px;">
+              <a class="nav-link" href="analytics">Analysis Page</a>
+            </li>
+        
+    </p>
+</ul>
+
+</br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6" style="margin-top: 40px;text-align: center; padding-bottom:80px;">
+    <div class="card" style="text-align:center; padding:10px;">
+        <span style="color:#fff;font-size:25px;margin-top:30px;marin-bottom:30px; text-align:center;">BLINK FREQUENCY GRAPH</span>
+        <div class="card-body">
+            <img src="http://127.0.0.1:5000/blinkchart" alt="Blink Chart" width="90%" height="300">
+        </div>
+    </div>
+</div>
+    <div class="col-sm-6" style="margin-top: 40px;text-align: center;  padding-bottom:80px;">
+        <span style="color:#fff;font-size:25px; margin-top:30px;marin-bottom:30px; text-align:center;">SCREEN TIME GRAPH</span>
+    <div class="card" style="text-align:center; padding:10px;">
+        <div class="card-body">
+            <img src="http://127.0.0.1:5000/screentime" alt="Screen Chart" width="90%" height="300">
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
